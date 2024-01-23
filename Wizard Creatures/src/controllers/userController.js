@@ -28,11 +28,13 @@ router.post("/register", async (req, res) => {
 router.get("/login", (req, res) => {
     res.render("user/login")
 });
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
     const {
         email,
         password,
     } = req.body;
+
+    const user = await userService.login(email, password);
     res.redirect("/");
 })
 
