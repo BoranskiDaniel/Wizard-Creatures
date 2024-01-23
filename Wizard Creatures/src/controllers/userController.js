@@ -34,8 +34,9 @@ router.post("/login", async (req, res) => {
         password,
     } = req.body;
 
-    const user = await userService.login(email, password);
+    const token = await userService.login(email, password);
+    console.log(token);
     res.redirect("/");
 })
 
-module.exports = router;
+module.exports = router; 
