@@ -3,7 +3,7 @@ const { SECRET } = require("../constants");
 
 exports.auth = async (req, res, next) => {
 
-    const token = req.cookies("token");
+    const token = req.cookies["token"];
 
     if (token) {
         try {
