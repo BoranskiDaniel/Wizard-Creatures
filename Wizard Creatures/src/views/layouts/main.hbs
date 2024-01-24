@@ -43,6 +43,12 @@
 
         </nav>
 
+        {{#each errorMessages}}
+            <div class="error-container">
+                <p>{{this}}</p>
+            </div>
+        {{/each}}
+
       {{{body}}}
 
         <footer>
