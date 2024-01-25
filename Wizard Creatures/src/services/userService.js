@@ -4,7 +4,7 @@ const jwt = require("../lib/jwt");
 const { SECRET } = require("../constants");
 
 async function validatePassword(password, userPassword) {
-    const isValid = await bcrypt.compare(password, user.password);
+    const isValid = await bcrypt.compare(password, userPassword);
 
     if (!isValid) {
         throw new Error("Invalid email or password!");
@@ -19,7 +19,7 @@ async function getToken(user) {
 }
 
 exports.register = async (userData) => {
-    const { password } = userData;
+    const { password } = userData;  
     const user = await User.create(userData);
 
     await validatePassword(password, user.password);
