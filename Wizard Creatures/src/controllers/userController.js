@@ -15,15 +15,20 @@ router.post("/register", async (req, res) => {
         repeatPassword,
     } = req.body;
 
-    await userService.register({
-        firstName,
-        lastName,
-        email,
-        password,
-        repeatPassword,
-    })
+    try {
+        await userService.register({
+            firstName,
+            lastName,
+            email,
+            password,
+            repeatPassword,
+        })
 
-    res.redirect("/users/login");
+        res.redirect("/users/login");
+    } catch (error) {
+        const errorMessages = extractErrorMsgs(error);
+        res.status(404).render("user/register", { errorMessages })
+    }
 })
 
 router.get("/login", (req, res) => {
