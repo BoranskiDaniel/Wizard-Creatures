@@ -32,8 +32,7 @@ router.get("/details/:creatureId", async (req, res) => {
     const { user } = req;
     const { owner } = creature;
 
-    const isOwner = user._id === owner.toString();
-    console.log({ isOwner });
+    const isOwner = user?._id === owner.toString();
 
     res.render("post/details", { creature, isOwner });
 })

@@ -15,8 +15,9 @@
                                 <p class="card-eye">Eye Color: {{creature.eyeColor}}</p>
                             </div>
 
-                            <p class="disc">Description: {{description}}
+                            <p class="disc">Description: {{creature.description}}
                             <!-- If there is no registered user, do not display buttons-->
+                            {{#if isAuthenticated}}
                             <div class="social-btn">
                                 <!-- Only for registered user and author of the post -->
                                 {{#if isOwner}}
@@ -31,6 +32,7 @@
                                 <p class="thanks-for-vote">Thanks For Voting</p>
 
                             </div>
+                            {{/if}}
                         </div>
                     </div>
                     <div class="card_right">
