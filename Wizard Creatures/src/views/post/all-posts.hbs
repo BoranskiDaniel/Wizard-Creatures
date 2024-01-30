@@ -5,7 +5,7 @@
                 <div class="band">
 
                     <!-- If there are posts for creature in the database display each of them -->
-
+                    {{#if creature}}
                     {{#each creatures}}
                     <div class="flip flip-vertical">
                         <div class="front">
@@ -16,16 +16,17 @@
                             <h1>{{name}}</h1>
                             <h2>Species: {{species}}</h2>
                             <p>Description: {{description}}</p>
-                            <a href="/" class="details">Details</a>
+                            <a href="/posts/details/{{_id}}" class="details">Details</a>
                         </div>
                     </div>
-
                     {{/each}}
 
-                    <!-- If there are still no posts in the database display: -->
-                    <!-- <div class="no-posts">
+                    {{else}}
+                    <div class="no-posts">
                         <p class="no-offer">There are no posts yet...</p>
-                    </div> -->
+                    </div>
+                    {{/if}}
+
                 </div>
             </section>
         </main>

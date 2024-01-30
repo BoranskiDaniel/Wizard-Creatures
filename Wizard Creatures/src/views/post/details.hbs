@@ -7,16 +7,15 @@
                     <div class="card_left">
                         <div class="card_datails">
 
-                            <h1>Name: Thestral</h1>
+                            <h1>Name: {{creature.name}}</h1>
                             <h3>Created by an author: Alex Smith</h3>
                             <div class="card_character">
-                                <p class="card-species">Species: Beast</p>
-                                <p class="card-skin">Skin colour: Black</p>
-                                <p class="card-eye">Eye Colour: White</p>
+                                <p class="card-species">Species: {{creature.species}}</p>
+                                <p class="card-skin">Skin color: {{creature.skinColor}}</p>
+                                <p class="card-eye">Eye Color: {{creature.eyeColor}}</p>
                             </div>
 
-                            <p class="disc">Description: Thestrals are an elusive, carnivorous species of winged horse, visible only to those who have witnessed and embraced a death, and described as having "blank, white, shining eyes," a "dragonish face," "long, black manes," "great leathery wings," and the "skeletal body of a great, black, winged horse"; also described by Hagrid as "dead clever an' useful", and also by Harry as "reptilian".</p>
-
+                            <p class="disc">Description: {{description}}
                             <!-- If there is no registered user, do not display buttons-->
                             <div class="social-btn">
                                 <!-- Only for registered user and author of the post -->
@@ -32,8 +31,8 @@
                         </div>
                     </div>
                     <div class="card_right">
-                        <img src="./static/img/Thestral.jpeg"
-                            alt="image">
+                        <img src="{{creature.image}}"
+                            alt="{{creature.name}}">
                     </div>
                 </div>
 
