@@ -51,11 +51,13 @@ router.post("/:creatureId/edit", async (req, res) => {
     const payload = { name, species, skinColor, eyeColor, image, description, owner: req.user, };
 
     await creatureService.update(creatureId, payload)
-    res.redirect(`/posts/details/${creatureId}`);
+    res.redirect(`/posts/${creatureId}/details`);
 })
 
-router.get("/:creatureId/delete", (req, res) => {
+router.get("/:creatureId/delete", async (req, res) => {
     const { creatureId } = req.params;
+
+    await creatureService.delete(creatureId);
 
     res.redirect("/posts/all");
 });
