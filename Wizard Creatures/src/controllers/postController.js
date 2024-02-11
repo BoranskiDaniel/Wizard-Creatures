@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const creatureService = require("../services/creatureService")
+const creatureService = require("../services/creatureService");
+const { isAuth } = require("../middlewares/authMiddleware");
 
 router.get("/all", async (req, res) => {
     const creatures = await creatureService.getAll().lean();
@@ -20,7 +21,7 @@ router.post("/create", async (req, res) => {
 
     res.redirect("/posts/all");
 })
-router.get("/profile", async (req, res) => {
+router.get("/profile", isAuth, async (req, res) => {
     const { user } = req;
 
     const myCreatures = await creatureService.getMyCreatures(user?._id).lean();
