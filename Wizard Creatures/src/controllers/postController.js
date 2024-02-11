@@ -8,7 +8,7 @@ router.get("/all", async (req, res) => {
     res.render("post/all-posts", { creatures });
 });
 
-router.get("/create", (req, res) => {
+router.get("/create", isAuth, (req, res) => {
     res.render("post/create");
 });
 
